@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="./paths.js"></script>
+  <title>PITLANE LK — Admin</title>
+  <link rel="icon" href="./assets/logo.png" type="image/png" />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./admin.css" />
+</head>
+<body class="admin-body">
+  <div id="loginScreen" class="admin-login">
+    <form id="loginForm" class="login-card" action="#" method="post">
+      <h1 class="login-logo-wrap">
+        <img src="./assets/logo.png" alt="PITLANE LK" class="login-logo" />
+        <span class="login-logo-sub">Admin</span>
+      </h1>
+      <p>Private content management — not linked on the public site.</p>
+      <label for="adminPass">Password</label>
+      <input type="password" id="adminPass" required autocomplete="current-password" />
+      <p id="loginError" class="login-error" hidden role="alert"></p>
+      <button type="button" class="btn btn-primary" id="btnSignIn">Sign in</button>
+      <p class="login-hint">Password: <code>f1insight2026</code></p>
+      <p class="login-hint">Requires <code>data.js</code>, <code>page-defaults.js</code>, <code>admin.js</code>, <code>styles.css</code>, and <code>admin.css</code>.</p>
+    </form>
+  </div>
+
+  <div id="adminApp" class="admin-app" hidden>
+    <header class="admin-top">
+      <div class="admin-top-inner">
+        <strong class="admin-brand"><img src="./assets/logo.png" alt="PITLANE LK" class="admin-brand-logo" /> Admin</strong>
+        <div class="admin-top-actions">
+          <a href="./index.html" target="_blank" class="btn btn-sm">View site</a>
+          <button type="button" class="btn btn-sm" id="btnResetData">Reset demo data</button>
+          <button type="button" class="btn btn-sm" id="btnLogout">Log out</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-layout">
+      <nav class="admin-nav">
+        <button type="button" class="admin-nav-btn active" data-panel="news">News</button>
+        <button type="button" class="admin-nav-btn" data-panel="standings">Standings</button>
+        <button type="button" class="admin-nav-btn" data-panel="stats">Season stats</button>
+        <button type="button" class="admin-nav-btn" data-panel="calendar">Calendar</button>
+        <button type="button" class="admin-nav-btn" data-panel="weekend">Weekend times</button>
+        <button type="button" class="admin-nav-btn" data-panel="pages">Pages</button>
+        <button type="button" class="admin-nav-btn" data-panel="ads">Advertisements</button>
+        <button type="button" class="admin-nav-btn" data-panel="messages">Contact messages</button>
+        <button type="button" class="admin-nav-btn" data-panel="settings">Settings</button>
+      </nav>
+
+      <main class="admin-main">
+        <section id="panel-news" class="admin-panel active">
+          <div class="panel-toolbar">
+            <h2>News articles</h2>
+            <button type="button" class="btn btn-primary btn-sm" id="btnAddNews">+ Add article</button>
+          </div>
+          <div id="newsList" class="admin-list"></div>
+          <form id="newsForm" class="admin-form" hidden>
+            <h3 id="newsFormTitle">Edit article</h3>
+            <input type="hidden" id="newsId" />
+            <div class="form-grid">
+              <label>Title (English)<input type="text" id="newsTitle" required /></label>
+              <label>Category<select id="newsCategory"></select></label>
+              <label>Author<input type="text" id="newsAuthor" required /></label>
+              <label>Time label<input type="text" id="newsTime" placeholder="e.g. 2 hours ago" /></label>
+            </div>
+            <label>Excerpt (English)<textarea id="newsExcerpt" rows="2" required></textarea></label>
+            <fieldset class="lang-fields">
+              <legend>Article image</legend>
+              <p class="section-desc">Shown on the homepage, news grid, and article page. JPG, PNG, or WebP — max 1.5 MB.</p>
+              <label>Upload image<input type="file" id="newsImageFile" accept="image/png,image/jpeg,image/webp,image/gif" /></label>
+              <label>Or paste image URL<input type="url" id="newsImageUrl" placeholder="https://example.com/photo.jpg" /></label>
+              <div id="newsImagePreviewWrap" class="news-image-preview-wrap" hidden>
+                <img id="newsImagePreview" class="news-image-preview" alt="Preview" />
+                <button type="button" class="btn btn-sm" id="newsImageRemove">Remove image</button>
+              </div>
+            </fieldset>
+            <label>Body — English (paragraphs separated by blank line)<textarea id="newsBody" rows="6"></textarea></label>
+            <fieldset class="lang-fields">
+              <legend>සිංහල — Sinhala article text</legend>
+              <label>Title (සිංහල)<input type="text" id="newsTitleSi" /></label>
+              <label>Excerpt (සිංහල)<textarea id="newsExcerptSi" rows="2"></textarea></label>
+              <label>Body (සිංහල)<textarea id="newsBodySi" rows="6"></textarea></label>
+            </fieldset>
+            <label class="check-row"><input type="checkbox" id="newsFeatured" /> Featured (lead story)</label>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save article</button>
+              <button type="button" class="btn" id="newsFormCancel">Cancel</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="panel-standings" class="admin-panel">
+          <h2>Championship standings</h2>
+          <div class="standings-admin">
+            <div>
+              <h3>Drivers</h3>
+              <div id="driversAdmin"></div>
+              <button type="button" class="btn btn-sm" id="btnAddDriver">+ Add driver</button>
+            </div>
+            <div>
+              <h3>Constructors</h3>
+              <div id="constructorsAdmin"></div>
+              <button type="button" class="btn btn-sm" id="btnAddConstructor">+ Add team</button>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" id="btnSaveStandings">Save standings</button>
+        </section>
+
+        <section id="panel-stats" class="admin-panel">
+          <div class="panel-toolbar">
+            <h2>Season stats</h2>
+            <button type="button" class="btn btn-sm" id="btnAddStat">+ Add stat</button>
+          </div>
+          <div id="statsAdmin"></div>
+          <button type="button" class="btn btn-primary" id="btnSaveStats">Save stats</button>
+        </section>
+
+        <section id="panel-calendar" class="admin-panel">
+          <div class="panel-toolbar">
+            <h2>Race calendar</h2>
+            <button type="button" class="btn btn-sm" id="btnAddRace">+ Add race</button>
+          </div>
+          <div id="calendarAdmin"></div>
+          <button type="button" class="btn btn-primary" id="btnSaveCalendar">Save calendar</button>
+        </section>
+
+        <section id="panel-weekend" class="admin-panel">
+          <h2>Weekend session times</h2>
+          <p class="section-desc">Set session times in <strong>Sri Lanka (SL) time</strong> for the top banner. Mark one race as <em>Next</em> on the Calendar tab to show it on the homepage.</p>
+          <div class="weekend-admin">
+            <label class="weekend-select">Race weekend
+              <select id="weekendRaceSelect"></select>
+            </label>
+            <fieldset class="weekend-format">
+              <legend>Weekend format</legend>
+              <label class="check-row">
+                <input type="radio" name="weekendFormat" value="standard" checked />
+                Standard — FP1, FP2, FP3, Qualifying, Race
+              </label>
+              <label class="check-row">
+                <input type="radio" name="weekendFormat" value="sprint" />
+                Sprint — FP1, Sprint Qualifying, Sprint, Qualifying, Race
+              </label>
+            </fieldset>
+            <div id="weekendSessionsAdmin" class="weekend-sessions"></div>
+            <p id="weekendPreview" class="weekend-preview"></p>
+            <button type="button" class="btn btn-primary" id="btnSaveWeekend">Save weekend times</button>
+          </div>
+        </section>
+
+        <section id="panel-pages" class="admin-panel">
+          <div class="panel-toolbar">
+            <h2>Site pages</h2>
+            <a id="pagePreviewLink" href="./about.html" target="_blank" class="btn btn-sm">View live page →</a>
+          </div>
+          <p class="section-desc">Edit About, legal pages, and the Advertise page. Use <code>{contact}</code> for a contact link and <code>{privacy}</code> for the privacy page. Use <code>**text**</code> for bold.</p>
+          <div class="filter-tabs page-slug-tabs" id="pageSlugTabs"></div>
+          <form id="pageForm" class="admin-form">
+            <div id="legalPageFields">
+              <label>Page title<input type="text" id="pageTitle" required /></label>
+              <label>Last updated <span class="label-hint">(optional, e.g. Last updated: June 2026)</span><input type="text" id="pageUpdated" /></label>
+              <label>Intro paragraphs<textarea id="pageIntro" rows="6" placeholder="Paragraphs separated by a blank line"></textarea></label>
+              <div class="panel-toolbar" style="margin-top:16px">
+                <h3>Sections</h3>
+                <button type="button" class="btn btn-sm" id="btnAddPageSection">+ Add section</button>
+              </div>
+              <div id="pageSections"></div>
+            </div>
+            <div id="advertisePageFields" hidden>
+              <label>Hero title<input type="text" id="advHeroTitle" /></label>
+              <h3>Hero stats</h3>
+              <div id="advStatsFields"></div>
+              <label>Placements section title<input type="text" id="advPlacementsTitle" /></label>
+              <label>Placements description<textarea id="advPlacementsDesc" rows="2"></textarea></label>
+              <label>Packages section title<input type="text" id="advPackagesTitle" /></label>
+              <label>Packages description<textarea id="advPackagesDesc" rows="2"></textarea></label>
+              <h3>Packages</h3>
+              <div id="advPackagesFields"></div>
+              <label>Footer note<textarea id="advFooterNote" rows="2"></textarea></label>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save page</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="panel-ads" class="admin-panel">
+          <h2>Advertisement banners</h2>
+          <p class="section-desc">Upload an image for each placement. When enabled with an image, it replaces the default house ad on the live site. JPG, PNG, or WebP — max 1.5 MB per slot.</p>
+          <div id="adsAdmin" class="ads-admin"></div>
+          <button type="button" class="btn btn-primary" id="btnSaveAds">Save advertisements</button>
+        </section>
+
+        <section id="panel-messages" class="admin-panel">
+          <h2>Contact form submissions</h2>
+          <p class="section-desc">Messages sent from the public Contact us form.</p>
+          <div id="messagesList" class="admin-list"></div>
+        </section>
+
+        <section id="panel-settings" class="admin-panel">
+          <h2>Site settings</h2>
+          <form id="settingsForm" class="admin-form">
+            <label>Top banner text<input type="text" id="settingsBanner" /></label>
+            <label>Categories (comma-separated)<input type="text" id="siteCategories" /></label>
+            <h3>Footer social links</h3>
+            <div class="form-grid">
+              <label>YouTube URL<input type="url" id="socialYoutube" placeholder="https://youtube.com/..." /></label>
+              <label>Facebook URL<input type="url" id="socialFacebook" placeholder="https://facebook.com/..." /></label>
+              <label>Instagram URL<input type="url" id="socialInstagram" placeholder="https://instagram.com/..." /></label>
+            </div>
+            <button type="submit" class="btn btn-primary">Save settings</button>
+          </form>
+          <hr class="admin-divider" />
+          <h3>Publish live (GitHub Pages / Netlify)</h3>
+          <p class="section-desc">Finish editing here, then download your site snapshot. Put <code>site-data.json</code> in the <code>f1-insight</code> folder next to <code>index.html</code>, commit <code>assets/logo.png</code>, and push to GitHub (or upload the folder to Netlify). All visitors will see this content including images.</p>
+          <button type="button" class="btn btn-primary" id="btnExportSiteData">Download site-data.json</button>
+          <p class="section-desc">After each round of admin changes, export again and push/redeploy so article &amp; ad images stay in sync.</p>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="./page-defaults.js"></script>
+  <script src="./data.js"></script>
+  <script src="./admin.js"></script>
+</body>
+</html>

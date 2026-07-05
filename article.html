@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="./paths.js"></script>
+  <title>Article — PITLANE LK</title>
+  <link rel="icon" href="./assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,700;1,800&family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@700&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="top-strip">
+    <div class="container strip-inner">
+      <div class="strip-left"></div>
+      <nav class="lang-bar" aria-label="Article language">
+        <button type="button" class="lang-btn" data-lang="si">සිංහල</button>
+        <button type="button" class="lang-btn active" data-lang="en">English</button>
+      </nav>
+      <span class="strip-spacer"></span>
+    </div>
+  </div>
+
+  <div id="siteHeader"></div>
+
+  <div class="container ad-zone ad-zone--tight">
+    <div data-ad-slot="leaderboard"></div>
+  </div>
+
+  <main class="container article-page" id="articleRoot">
+    <p class="load-status" data-i18n="loading_article">Loading article…</p>
+  </main>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script src="./page-defaults.js"></script>
+  <script src="./data.js"></script>
+  <script src="./news-images.js"></script>
+  <script src="./i18n.js"></script>
+  <script src="./ads.js"></script>
+  <script src="./header.js"></script>
+  <script src="./footer.js"></script>
+  <script>
+  (function () {
+    var id = parseInt(new URLSearchParams(location.search).get("id"), 10);
+    var data;
+    var article;
+    var root = document.getElementById("articleRoot");
+
+    function esc(s) {
+      return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    }
+
+    function renderArticle() {
+      if (!article) {
+        root.innerHTML = '<p class="load-status error">' + esc(I18n.t("article_not_found")) + ' <a href="./index.html">' + esc(I18n.t("return_home")) + "</a></p>";
+        return;
+      }
+
+      var text = F1Data.getArticleFields(article, I18n.getLang());
+      document.title = text.title + " — PITLANE LK";
+      var paragraphs = (text.body || text.excerpt || "").split("\n\n").map(function (p) {
+        return "<p>" + esc(p.trim()) + "</p>";
+      }).join("");
+
+      var imageBlock = typeof F1NewsImages !== "undefined"
+        ? F1NewsImages.articleHtml(article, esc(I18n.catLabel(article.category)))
+        : '<div class="lead-image article-placeholder" style="margin:24px 0">' + esc(I18n.catLabel(article.category)) + "</div>";
+
+      root.innerHTML =
+        '<article class="article-full">' +
+        '<span class="category">' + esc(I18n.catLabel(article.category)) + "</span>" +
+        "<h1>" + esc(text.title) + "</h1>" +
+        '<p class="article-meta"><strong>' + esc(article.author) + "</strong> · " + esc(article.time) + "</p>" +
+        imageBlock +
+        '<div data-ad-slot="article"></div>' +
+        '<div class="article-body">' + paragraphs + "</div>" +
+        '<div class="ad-zone" style="margin-top:32px"><div data-ad-slot="inline"></div></div>' +
+        "</article>";
+      if (window.initAdSlots) window.initAdSlots(root);
+    }
+
+    function boot() {
+      data = F1Data.load();
+      article = data.news.find(function (n) { return n.id === id; });
+      renderArticle();
+      window.addEventListener("langchange", function () {
+        renderArticle();
+      });
+    }
+
+    F1Data.whenReady(boot);
+  })();
+  </script>
+</body>
+</html>

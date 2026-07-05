@@ -1,0 +1,13 @@
+# PITLANE LK — Netlify static deploy
+# Publish folder: upload the f1-insight folder (this directory) as the site root.
+
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

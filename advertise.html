@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="./paths.js"></script>
+  <title>Advertise — PITLANE LK</title>
+  <link rel="icon" href="./assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,700;1,800&family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="siteTopStrip"></div>
+  <div id="siteHeader"></div>
+
+  <section class="advertise-hero">
+    <div class="container">
+      <h1 id="advertiseHeroTitle">Advertise on PITLANE LK</h1>
+      <div class="advertise-stats" id="advertiseStats"></div>
+    </div>
+  </section>
+
+  <main>
+    <section class="container section">
+      <div class="section-head">
+        <h2 id="advertisePlacementsTitle">Banner sizes &amp; placements</h2>
+        <p class="section-desc" id="advertisePlacementsDesc"></p>
+      </div>
+      <div class="ad-sizes-grid">
+        <div class="ad-size-row">
+          <h3>Leaderboard — every page top</h3>
+          <div data-ad-slot="leaderboard"></div>
+        </div>
+        <div class="ad-size-row">
+          <h3>Billboard — homepage hero</h3>
+          <div data-ad-slot="billboard"></div>
+        </div>
+        <div class="ad-size-row" style="max-width:320px">
+          <h3>Medium rectangle — sidebar &amp; articles</h3>
+          <div data-ad-slot="mpu"></div>
+        </div>
+        <div class="ad-size-row">
+          <h3>In-feed — between news sections</h3>
+          <div data-ad-slot="inline"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="advertisePackagesTitle">Advertising packages</h2>
+          <p class="section-desc" id="advertisePackagesDesc"></p>
+        </div>
+        <div class="ad-packages" id="advertisePackages"></div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div data-ad-slot="strip" data-ad-href="./index.html#contact"></div>
+      <p class="section-desc" id="advertiseFooterNote" style="margin-top:20px;text-align:center"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script src="./page-defaults.js"></script>
+  <script src="./data.js"></script>
+  <script src="./top-strip.js"></script>
+  <script src="./i18n.js"></script>
+  <script src="./page-render.js"></script>
+  <script src="./ads.js"></script>
+  <script src="./header.js"></script>
+  <script src="./footer.js"></script>
+  <script>F1PageRender.initAdvertise();</script>
+</body>
+</html>

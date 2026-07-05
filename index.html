@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="./paths.js"></script>
+  <title data-i18n-title>PITLANE LK — F1 News &amp; Standings</title>
+  <link rel="icon" href="./assets/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,700;1,800&family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@700&family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="top-strip">
+    <div class="container strip-inner">
+      <div class="strip-left">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span id="siteBanner"></span>
+      </div>
+      <nav class="lang-bar" aria-label="Article language">
+        <button type="button" class="lang-btn" data-lang="si">සිංහල</button>
+        <button type="button" class="lang-btn active" data-lang="en">English</button>
+      </nav>
+      <time id="todayDate"></time>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="./index.html" class="logo">
+        <img src="./assets/logo.png" alt="PITLANE LK" class="logo-img" />
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#news" data-i18n="nav_news">News</a>
+        <a href="#standings" data-i18n="nav_standings">Standings</a>
+        <a href="#calendar" data-i18n="nav_calendar">Calendar</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+        <a href="./about.html" data-i18n="nav_about">About Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container ad-zone ad-zone--tight">
+    <p class="ad-zone-label">Sponsorship</p>
+    <div data-ad-slot="leaderboard"></div>
+  </div>
+
+  <main>
+    <section class="hero-news container">
+      <article class="lead-story" id="leadStory"></article>
+    </section>
+
+    <section id="news" class="container section">
+      <div class="section-head">
+        <h2 data-i18n="section_all_news">All News</h2>
+        <div class="filter-tabs" id="newsFilters" role="tablist"></div>
+      </div>
+      <div class="news-grid" id="newsGrid"></div>
+    </section>
+
+    <section id="standings" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="section_championship">Championship Standings</h2>
+          <div class="filter-tabs" role="tablist">
+            <button type="button" class="filter-tab active" data-standings="drivers" data-i18n="tab_drivers">Drivers</button>
+            <button type="button" class="filter-tab" data-standings="constructors" data-i18n="tab_constructors">Constructors</button>
+          </div>
+        </div>
+        <div class="standings-layout">
+          <div class="standings-panel" id="standingsTable"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="calendar" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <h2 data-i18n="section_calendar">Race Calendar</h2>
+          <p class="section-desc" data-i18n="section_calendar_desc">Full 2026 season — scroll to browse all races</p>
+        </div>
+        <div class="calendar-list" id="raceCalendar"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact-layout">
+        <div class="contact-intro">
+          <h2 data-i18n="section_contact">Contact us</h2>
+          <p class="section-desc" data-i18n="section_contact_desc">Questions, tips, or partnership enquiries — send us a message and we'll respond as soon as we can.</p>
+          <ul class="contact-perks">
+            <li data-i18n="contact_perk_1">Editorial tips &amp; story leads</li>
+            <li data-i18n="contact_perk_2">Advertising &amp; sponsorship</li>
+            <li data-i18n="contact_perk_3">General feedback</li>
+          </ul>
+        </div>
+        <form id="contactForm" class="contact-form">
+          <label><span data-i18n="form_name"></span><input type="text" name="name" required autocomplete="name" /></label>
+          <label><span data-i18n="form_email"></span><input type="email" name="email" required autocomplete="email" /></label>
+          <label><span data-i18n="form_subject"></span><input type="text" name="subject" data-i18n-placeholder="form_subject_ph" placeholder="What is this about?" /></label>
+          <label><span data-i18n="form_message"></span><textarea name="message" rows="3" required data-i18n-placeholder="form_message_ph" placeholder="Your message…"></textarea></label>
+          <button type="submit" class="btn btn-primary btn-sm" data-i18n="btn_send">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script src="./page-defaults.js"></script>
+  <script src="./data.js"></script>
+  <script src="./news-images.js"></script>
+  <script src="./top-strip.js"></script>
+  <script src="./i18n.js"></script>
+  <script src="./ads.js"></script>
+  <script src="./footer.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
