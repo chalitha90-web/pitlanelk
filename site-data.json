@@ -168,60 +168,60 @@
       "id": 1
     }
   ],
-  "standingsVersion": 4,
+  "standingsVersion": 5,
   "calendarSessionsVersion": 1,
   "drivers": [
     {
       "pos": 1,
-      "name": "Kimi Antonelli",
+      "name": "Andrea Kimi Antonelli",
       "team": "Mercedes",
       "nationality": "IT",
-      "points": 171,
+      "points": 179,
       "wins": 5,
-      "podiums": 7
+      "podiums": 8
     },
     {
       "pos": 2,
       "name": "George Russell",
       "team": "Mercedes",
       "nationality": "GB",
-      "points": 131,
+      "points": 154,
       "wins": 2,
-      "podiums": 4
+      "podiums": 5
     },
     {
       "pos": 3,
       "name": "Lewis Hamilton",
       "team": "Ferrari",
       "nationality": "GB",
-      "points": 125,
+      "points": 147,
       "wins": 1,
       "podiums": 4
     },
     {
       "pos": 4,
-      "name": "Oscar Piastri",
-      "team": "McLaren",
-      "nationality": "AU",
-      "points": 80,
-      "wins": 0,
-      "podiums": 3
+      "name": "Charles Leclerc",
+      "team": "Ferrari",
+      "nationality": "MC",
+      "points": 108,
+      "wins": 1,
+      "podiums": 4
     },
     {
       "pos": 5,
       "name": "Lando Norris",
       "team": "McLaren",
       "nationality": "GB",
-      "points": 79,
+      "points": 97,
       "wins": 0,
-      "podiums": 2
+      "podiums": 3
     },
     {
       "pos": 6,
-      "name": "Charles Leclerc",
-      "team": "Ferrari",
-      "nationality": "MC",
-      "points": 79,
+      "name": "Oscar Piastri",
+      "team": "McLaren",
+      "nationality": "AU",
+      "points": 82,
       "wins": 0,
       "podiums": 3
     },
@@ -230,7 +230,7 @@
       "name": "Max Verstappen",
       "team": "Red Bull",
       "nationality": "NL",
-      "points": 73,
+      "points": 76,
       "wins": 0,
       "podiums": 2
     },
@@ -239,57 +239,66 @@
       "name": "Isack Hadjar",
       "team": "Red Bull",
       "nationality": "FR",
-      "points": 42,
+      "points": 52,
       "wins": 0,
       "podiums": 0
     },
     {
       "pos": 9,
       "name": "Pierre Gasly",
-      "team": "Alpine",
+      "team": "Alpine F1 Team",
       "nationality": "FR",
-      "points": 41,
+      "points": 42,
       "wins": 0,
       "podiums": 0
     },
     {
       "pos": 10,
       "name": "Liam Lawson",
-      "team": "Racing Bulls",
+      "team": "RB F1 Team",
       "nationality": "NZ",
-      "points": 30,
+      "points": 39,
       "wins": 0,
       "podiums": 0
     },
     {
       "pos": 11,
+      "name": "Arvid Lindblad",
+      "team": "RB F1 Team",
+      "nationality": "GB",
+      "points": 20,
+      "wins": 0,
+      "podiums": 0
+    },
+    {
+      "pos": 12,
       "name": "Oliver Bearman",
-      "team": "Haas",
+      "team": "Haas F1 Team",
       "nationality": "GB",
       "points": 18,
       "wins": 0,
       "podiums": 0
     },
     {
-      "pos": 12,
-      "name": "Franco Colapinto",
-      "team": "Alpine",
-      "nationality": "AR",
-      "points": 16,
-      "wins": 0,
-      "podiums": 0
-    },
-    {
       "pos": 13,
-      "name": "Arvid Lindblad",
-      "team": "Racing Bulls",
-      "nationality": "GB",
-      "points": 14,
+      "name": "Franco Colapinto",
+      "team": "Alpine F1 Team",
+      "nationality": "AR",
+      "points": 18,
       "wins": 0,
       "podiums": 0
     },
     {
       "pos": 14,
+      "name": "Gabriel Bortoleto",
+      "team": "Audi",
+      "nationality": "BR",
+      "points": 6,
+      "wins": 0,
+      "podiums": 0
+    },
+    {
+      "pos": 15,
       "name": "Carlos Sainz",
       "team": "Williams",
       "nationality": "ES",
@@ -298,7 +307,7 @@
       "podiums": 0
     },
     {
-      "pos": 15,
+      "pos": 16,
       "name": "Alexander Albon",
       "team": "Williams",
       "nationality": "TH",
@@ -307,20 +316,11 @@
       "podiums": 0
     },
     {
-      "pos": 16,
+      "pos": 17,
       "name": "Esteban Ocon",
-      "team": "Haas",
+      "team": "Haas F1 Team",
       "nationality": "FR",
       "points": 3,
-      "wins": 0,
-      "podiums": 0
-    },
-    {
-      "pos": 17,
-      "name": "Gabriel Bortoleto",
-      "team": "Audi",
-      "nationality": "BR",
-      "points": 2,
       "wins": 0,
       "podiums": 0
     },
@@ -345,7 +345,7 @@
     {
       "pos": 20,
       "name": "Valtteri Bottas",
-      "team": "Cadillac",
+      "team": "Cadillac F1 Team",
       "nationality": "FI",
       "points": 0,
       "wins": 0,
@@ -354,7 +354,7 @@
     {
       "pos": 21,
       "name": "Sergio Perez",
-      "team": "Cadillac",
+      "team": "Cadillac F1 Team",
       "nationality": "MX",
       "points": 0,
       "wins": 0,
@@ -374,42 +374,42 @@
     {
       "pos": 1,
       "name": "Mercedes",
-      "points": 302,
+      "points": 333,
       "wins": 7
     },
     {
       "pos": 2,
       "name": "Ferrari",
-      "points": 204,
-      "wins": 1
+      "points": 255,
+      "wins": 2
     },
     {
       "pos": 3,
       "name": "McLaren",
-      "points": 159,
+      "points": 179,
       "wins": 0
     },
     {
       "pos": 4,
       "name": "Red Bull",
-      "points": 115,
+      "points": 128,
       "wins": 0
     },
     {
       "pos": 5,
-      "name": "Alpine",
-      "points": 57,
+      "name": "Alpine F1 Team",
+      "points": 60,
       "wins": 0
     },
     {
       "pos": 6,
-      "name": "Racing Bulls",
-      "points": 44,
+      "name": "RB F1 Team",
+      "points": 59,
       "wins": 0
     },
     {
       "pos": 7,
-      "name": "Haas",
+      "name": "Haas F1 Team",
       "points": 21,
       "wins": 0
     },
@@ -422,7 +422,7 @@
     {
       "pos": 9,
       "name": "Audi",
-      "points": 2,
+      "points": 6,
       "wins": 0
     },
     {
@@ -433,7 +433,7 @@
     },
     {
       "pos": 11,
-      "name": "Cadillac",
+      "name": "Cadillac F1 Team",
       "points": 0,
       "wins": 0
     }
@@ -1107,34 +1107,34 @@
   ],
   "seasonStats": [
     {
-      "value": "8",
+      "value": "9",
       "label": "Races completed",
       "sub": "of 22 scheduled"
     },
     {
-      "value": "40",
+      "value": "25",
       "label": "Championship gap",
       "sub": "Antonelli leads Russell"
     },
     {
-      "value": "3",
+      "value": "4",
       "label": "Different winners",
-      "sub": "Antonelli ×5, Russell ×2, Hamilton"
+      "sub": "Antonelli, Russell, Hamilton, Leclerc"
     },
     {
-      "value": "302",
+      "value": "333",
       "label": "Mercedes points",
-      "sub": "98 ahead of Ferrari"
+      "sub": "78 ahead of Ferrari"
     },
     {
       "value": "19",
       "label": "Youngest ever leader",
-      "sub": "Kimi Antonelli (years old)"
+      "sub": "Andrea Kimi Antonelli"
     },
     {
       "value": "7",
       "label": "Mercedes race wins",
-      "sub": "from 8 Grands Prix"
+      "sub": "from 9 Grands Prix"
     }
   ],
   "social": {
