@@ -7,7 +7,7 @@
   var STORAGE_KEY = "f1insight_site_v2";
   var CONTACT_KEY = "f1insight_contact_v1";
   var ADMIN_SESSION_KEY = "f1insight_admin_session";
-  var STANDINGS_VERSION = 4;
+  var STANDINGS_VERSION = 5;
   var CALENDAR_SESSIONS_VERSION = 1;
 
   /** Sinhala article text — managed in Admin under each article */
@@ -190,41 +190,41 @@
       standingsVersion: STANDINGS_VERSION,
       calendarSessionsVersion: CALENDAR_SESSIONS_VERSION,
       drivers: [
-        { pos: 1, name: "Kimi Antonelli", team: "Mercedes", nationality: "IT", points: 171, wins: 5, podiums: 7 },
-        { pos: 2, name: "George Russell", team: "Mercedes", nationality: "GB", points: 131, wins: 2, podiums: 4 },
-        { pos: 3, name: "Lewis Hamilton", team: "Ferrari", nationality: "GB", points: 125, wins: 1, podiums: 4 },
-        { pos: 4, name: "Oscar Piastri", team: "McLaren", nationality: "AU", points: 80, wins: 0, podiums: 3 },
-        { pos: 5, name: "Lando Norris", team: "McLaren", nationality: "GB", points: 79, wins: 0, podiums: 2 },
-        { pos: 6, name: "Charles Leclerc", team: "Ferrari", nationality: "MC", points: 79, wins: 0, podiums: 3 },
-        { pos: 7, name: "Max Verstappen", team: "Red Bull", nationality: "NL", points: 73, wins: 0, podiums: 2 },
-        { pos: 8, name: "Isack Hadjar", team: "Red Bull", nationality: "FR", points: 42, wins: 0, podiums: 0 },
-        { pos: 9, name: "Pierre Gasly", team: "Alpine", nationality: "FR", points: 41, wins: 0, podiums: 0 },
-        { pos: 10, name: "Liam Lawson", team: "Racing Bulls", nationality: "NZ", points: 30, wins: 0, podiums: 0 },
-        { pos: 11, name: "Oliver Bearman", team: "Haas", nationality: "GB", points: 18, wins: 0, podiums: 0 },
-        { pos: 12, name: "Franco Colapinto", team: "Alpine", nationality: "AR", points: 16, wins: 0, podiums: 0 },
-        { pos: 13, name: "Arvid Lindblad", team: "Racing Bulls", nationality: "GB", points: 14, wins: 0, podiums: 0 },
-        { pos: 14, name: "Carlos Sainz", team: "Williams", nationality: "ES", points: 6, wins: 0, podiums: 0 },
-        { pos: 15, name: "Alexander Albon", team: "Williams", nationality: "TH", points: 5, wins: 0, podiums: 0 },
-        { pos: 16, name: "Esteban Ocon", team: "Haas", nationality: "FR", points: 3, wins: 0, podiums: 0 },
-        { pos: 17, name: "Gabriel Bortoleto", team: "Audi", nationality: "BR", points: 2, wins: 0, podiums: 0 },
+        { pos: 1, name: "Andrea Kimi Antonelli", team: "Mercedes", nationality: "IT", points: 179, wins: 5, podiums: 8 },
+        { pos: 2, name: "George Russell", team: "Mercedes", nationality: "GB", points: 154, wins: 2, podiums: 5 },
+        { pos: 3, name: "Lewis Hamilton", team: "Ferrari", nationality: "GB", points: 147, wins: 1, podiums: 4 },
+        { pos: 4, name: "Charles Leclerc", team: "Ferrari", nationality: "MC", points: 108, wins: 1, podiums: 4 },
+        { pos: 5, name: "Lando Norris", team: "McLaren", nationality: "GB", points: 97, wins: 0, podiums: 3 },
+        { pos: 6, name: "Oscar Piastri", team: "McLaren", nationality: "AU", points: 82, wins: 0, podiums: 3 },
+        { pos: 7, name: "Max Verstappen", team: "Red Bull", nationality: "NL", points: 76, wins: 0, podiums: 2 },
+        { pos: 8, name: "Isack Hadjar", team: "Red Bull", nationality: "FR", points: 52, wins: 0, podiums: 0 },
+        { pos: 9, name: "Pierre Gasly", team: "Alpine F1 Team", nationality: "FR", points: 42, wins: 0, podiums: 0 },
+        { pos: 10, name: "Liam Lawson", team: "RB F1 Team", nationality: "NZ", points: 39, wins: 0, podiums: 0 },
+        { pos: 11, name: "Arvid Lindblad", team: "RB F1 Team", nationality: "GB", points: 20, wins: 0, podiums: 0 },
+        { pos: 12, name: "Oliver Bearman", team: "Haas F1 Team", nationality: "GB", points: 18, wins: 0, podiums: 0 },
+        { pos: 13, name: "Franco Colapinto", team: "Alpine F1 Team", nationality: "AR", points: 18, wins: 0, podiums: 0 },
+        { pos: 14, name: "Gabriel Bortoleto", team: "Audi", nationality: "BR", points: 6, wins: 0, podiums: 0 },
+        { pos: 15, name: "Carlos Sainz", team: "Williams", nationality: "ES", points: 6, wins: 0, podiums: 0 },
+        { pos: 16, name: "Alexander Albon", team: "Williams", nationality: "TH", points: 5, wins: 0, podiums: 0 },
+        { pos: 17, name: "Esteban Ocon", team: "Haas F1 Team", nationality: "FR", points: 3, wins: 0, podiums: 0 },
         { pos: 18, name: "Fernando Alonso", team: "Aston Martin", nationality: "ES", points: 1, wins: 0, podiums: 0 },
         { pos: 19, name: "Nico Hulkenberg", team: "Audi", nationality: "DE", points: 0, wins: 0, podiums: 0 },
-        { pos: 20, name: "Valtteri Bottas", team: "Cadillac", nationality: "FI", points: 0, wins: 0, podiums: 0 },
-        { pos: 21, name: "Sergio Perez", team: "Cadillac", nationality: "MX", points: 0, wins: 0, podiums: 0 },
+        { pos: 20, name: "Valtteri Bottas", team: "Cadillac F1 Team", nationality: "FI", points: 0, wins: 0, podiums: 0 },
+        { pos: 21, name: "Sergio Perez", team: "Cadillac F1 Team", nationality: "MX", points: 0, wins: 0, podiums: 0 },
         { pos: 22, name: "Lance Stroll", team: "Aston Martin", nationality: "CA", points: 0, wins: 0, podiums: 0 },
       ],
       constructors: [
-        { pos: 1, name: "Mercedes", points: 302, wins: 7 },
-        { pos: 2, name: "Ferrari", points: 204, wins: 1 },
-        { pos: 3, name: "McLaren", points: 159, wins: 0 },
-        { pos: 4, name: "Red Bull", points: 115, wins: 0 },
-        { pos: 5, name: "Alpine", points: 57, wins: 0 },
-        { pos: 6, name: "Racing Bulls", points: 44, wins: 0 },
-        { pos: 7, name: "Haas", points: 21, wins: 0 },
+        { pos: 1, name: "Mercedes", points: 333, wins: 7 },
+        { pos: 2, name: "Ferrari", points: 255, wins: 2 },
+        { pos: 3, name: "McLaren", points: 179, wins: 0 },
+        { pos: 4, name: "Red Bull", points: 128, wins: 0 },
+        { pos: 5, name: "Alpine F1 Team", points: 60, wins: 0 },
+        { pos: 6, name: "RB F1 Team", points: 59, wins: 0 },
+        { pos: 7, name: "Haas F1 Team", points: 21, wins: 0 },
         { pos: 8, name: "Williams", points: 11, wins: 0 },
-        { pos: 9, name: "Audi", points: 2, wins: 0 },
+        { pos: 9, name: "Audi", points: 6, wins: 0 },
         { pos: 10, name: "Aston Martin", points: 1, wins: 0 },
-        { pos: 11, name: "Cadillac", points: 0, wins: 0 },
+        { pos: 11, name: "Cadillac F1 Team", points: 0, wins: 0 },
       ],
       calendar: [
         { round: 1, name: "Australian Grand Prix", circuit: "Albert Park", date: "14–16 Mar 2026", next: false },
@@ -279,12 +279,12 @@
         { round: 22, name: "Abu Dhabi Grand Prix", circuit: "Yas Marina", date: "4–6 Dec 2026", next: false },
       ],
       seasonStats: [
-        { value: "8", label: "Races completed", sub: "of 22 scheduled" },
-        { value: "40", label: "Championship gap", sub: "Antonelli leads Russell" },
-        { value: "3", label: "Different winners", sub: "Antonelli ×5, Russell ×2, Hamilton" },
-        { value: "302", label: "Mercedes points", sub: "98 ahead of Ferrari" },
-        { value: "19", label: "Youngest ever leader", sub: "Kimi Antonelli (years old)" },
-        { value: "7", label: "Mercedes race wins", sub: "from 8 Grands Prix" },
+        { value: "9", label: "Races completed", sub: "of 22 scheduled" },
+        { value: "25", label: "Championship gap", sub: "Antonelli leads Russell" },
+        { value: "4", label: "Different winners", sub: "Antonelli, Russell, Hamilton, Leclerc" },
+        { value: "333", label: "Mercedes points", sub: "78 ahead of Ferrari" },
+        { value: "19", label: "Youngest ever leader", sub: "Andrea Kimi Antonelli" },
+        { value: "7", label: "Mercedes race wins", sub: "from 9 Grands Prix" },
       ],
       social: cloneSocialDefaults(),
       ads: cloneAdDefaults(),
@@ -554,6 +554,7 @@
     ensureNextRaceFlag(data);
     mergePagesFromSeed(data);
     mergeAdsFromSeed(data);
+    mergeStandingsFromSeed(data);
     return data;
   }
 
@@ -667,8 +668,10 @@
     STORAGE_KEY: STORAGE_KEY,
     TEAM_COLORS: {
       McLaren: "#ff8000", Ferrari: "#e8002d", "Red Bull": "#3671c6", Mercedes: "#27f4d2",
-      Williams: "#64c4ff", "Racing Bulls": "#6692ff", "Aston Martin": "#229971",
-      Haas: "#b6babd", Audi: "#f50537", Alpine: "#ff87bc", Cadillac: "#0e5a63",
+      Williams: "#64c4ff", "Racing Bulls": "#6692ff", "RB F1 Team": "#6692ff",
+      "Aston Martin": "#229971", Haas: "#b6babd", "Haas F1 Team": "#b6babd",
+      Audi: "#f50537", Alpine: "#ff87bc", "Alpine F1 Team": "#ff87bc",
+      Cadillac: "#0e5a63", "Cadillac F1 Team": "#0e5a63",
     },
     flagEmoji: function (code) {
       if (!code || String(code).length !== 2) return "";
