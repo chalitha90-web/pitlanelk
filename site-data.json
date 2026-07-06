@@ -654,7 +654,7 @@
       "name": "Austrian Grand Prix",
       "circuit": "Red Bull Ring",
       "date": "26–28 Jun 2026",
-      "next": true,
+      "next": false,
       "sprint": false,
       "sessions": [
         {
@@ -719,7 +719,8 @@
       "name": "Belgian Grand Prix",
       "circuit": "Spa-Francorchamps",
       "date": "17–19 Jul 2026",
-      "next": false,
+      "next": true,
+      "sprint": false,
       "sessions": [
         {
           "label": "FP1",
@@ -741,8 +742,7 @@
           "label": "Race",
           "start": ""
         }
-      ],
-      "sprint": false
+      ]
     },
     {
       "round": 11,
@@ -750,6 +750,7 @@
       "circuit": "Hungaroring",
       "date": "24–26 Jul 2026",
       "next": false,
+      "sprint": false,
       "sessions": [
         {
           "label": "FP1",
@@ -771,8 +772,7 @@
           "label": "Race",
           "start": ""
         }
-      ],
-      "sprint": false
+      ]
     },
     {
       "round": 12,
@@ -780,6 +780,7 @@
       "circuit": "Zandvoort",
       "date": "21–23 Aug 2026",
       "next": false,
+      "sprint": false,
       "sessions": [
         {
           "label": "FP1",
@@ -801,8 +802,7 @@
           "label": "Race",
           "start": ""
         }
-      ],
-      "sprint": false
+      ]
     },
     {
       "round": 13,
